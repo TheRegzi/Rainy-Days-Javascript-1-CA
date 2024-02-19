@@ -341,8 +341,9 @@ footer p {
     width: 50%;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 2em auto;
     align-items: center;
+    text-align: center;
     font-weight: 500;
     font-size: 1.2em;
     padding: 1em;
@@ -352,6 +353,21 @@ footer p {
     width: 150px;
     justify-content: center;
     padding: 1em;
+}
+
+.continue-shopping {
+    background-color: #FFEF42;
+    color: #000000;
+    border-radius: 5px;
+    border: none;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-family: 'Raleway', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+}
 }
 
 /* About us */
@@ -834,10 +850,8 @@ footer p {
         width: 80%;
         font-weight: 500;
         font-size: 1em;
-        
     }
-    
-    
+
     .continue_shopping {
         padding: 0.5em 3em;
     }
