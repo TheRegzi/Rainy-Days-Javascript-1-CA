@@ -313,9 +313,7 @@ footer p {
     font-family: 'Raleway', Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.2em;
     cursor: pointer;
-
 }
-
 
 .total {
     text-align: center;
@@ -323,6 +321,18 @@ footer p {
     font-weight: 500;
 }
 
+.place-order {
+    background-color: #FFEF42;
+    color: #000000;
+    border-radius: 5px;
+    border: 1px solid #9f9f9f;
+    padding: 1em 4em;
+    text-align: center;
+    font-family: 'Raleway', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+}
 
 /* Checkout success page */
 
