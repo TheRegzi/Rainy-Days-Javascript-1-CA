@@ -3,7 +3,7 @@ import { getProducts } from "./api.js";
 
 export function filterProducts(products, filter) {
     let filteredProducts;
-    if (filter === 'all') {
+    if (filter === "all") {
     filteredProducts = products;
     } 
     else {

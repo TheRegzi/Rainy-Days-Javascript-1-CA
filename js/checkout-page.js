@@ -1,13 +1,13 @@
 
 function displayCart() { 
-    const cartContainer = document.getElementById('cart-container');
+    const cartContainer = document.getElementById("cart-container");
     cartContainer.innerHTML = '';
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     let total = 0;
     cart.forEach((item) => { 
-        const itemElement = document.createElement('div');
-        itemElement.classList.add('cart-item');
+        const itemElement = document.createElement("div");
+        itemElement.classList.add("cart-item");
 
         const itemDetails = `
         <div class="item-details">
@@ -23,18 +23,16 @@ function displayCart() {
 
         itemElement.innerHTML = itemDetails;
 
-        // Create and append the 'Remove' button inside the loop for each item
         const removeButton = createRemoveButton(item.id, item.selectedSize);
         removeButton.classList.add("remove-button");
         itemElement.appendChild(removeButton);
 
-        // Append itemElement to the cartContainer
         cartContainer.appendChild(itemElement);
 
         total += item.price * item.quantity;
     });
 
-    const totalElement = document.createElement('p');
+    const totalElement = document.createElement("p");
     totalElement.textContent = `Total: $${total}`;
     cartContainer.appendChild(totalElement);
     totalElement.classList.add("total");
@@ -44,41 +42,41 @@ function displayCart() {
 displayCart();
 
 function createRemoveButton(productId, selectedSize) {
-    const button = document.createElement('button');
-    button.textContent = 'Remove';
-    button.addEventListener('click', function() {
+    const button = document.createElement("button");
+    button.textContent = "Remove";
+    button.addEventListener("click", function() {
         removeFromCart(productId, selectedSize);
     });
     return button;
 }
 
 function removeFromCart(productId, selectedSize) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const itemIndex = cart.findIndex(item => item.id === productId && item.selectedSize === selectedSize);
     
     if (itemIndex !== -1) {
-        cart.splice(itemIndex, 1); // Remove the item
-        localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
-        displayCart(); // Refresh the cart display
+        cart.splice(itemIndex, 1); 
+        localStorage.setItem("cart", JSON.stringify(cart)); 
+        displayCart(); 
     }
 }
 
 function createPlaceOrderButton() {
-    const cartContainer = document.getElementById('cart-container');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.getElementById("cart-container");
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cart.length > 0) {
         let existingButton = cartContainer.querySelector(".place-order");
         if (!existingButton) {
             const placeOrderButton = document.createElement("button");
             placeOrderButton.textContent = "Place Order";
             placeOrderButton.classList.add("place-order");
-            placeOrderButton.addEventListener('click', () => {
+            placeOrderButton.addEventListener("click", () => {
                 window.location.href = 'checkout-success.html';
             });
             cartContainer.appendChild(placeOrderButton);
         }
     } else {
-        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
         return;
     }
 }

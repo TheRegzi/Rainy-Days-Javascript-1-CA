@@ -10,22 +10,22 @@ function invisibleLoader() {
     loader.style.display = "none"; 
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
     visibleLoader();
     try {
         const queryParams = new URLSearchParams(window.location.search);
-        const productId = queryParams.get('productId');
+        const productId = queryParams.get("productId");
         const products = await getProducts();
         const product = products.find(p => p.id.toString() === productId);
         if (product) {
             displayProductDetails(product);
         } else {
-            console.error('Product not found');
+            console.error("Product not found");
         }
     } catch (error) {
-        console.error('An error occurred:', error);
+        console.error("An error occurred:", error);
     } finally {
-        invisibleLoader(); // Ensures loader is hidden regardless of success or failure
+        invisibleLoader(); 
     }
 });
 
@@ -71,18 +71,18 @@ function setupSizes(sizes) {
 }
 
 function initAddToCartButton(product) {
-    const addToCartButton = document.getElementById('add-to-cart');
-    addToCartButton.removeEventListener('click', addToCartHandler);
-    addToCartButton.addEventListener('click', () => {
+    const addToCartButton = document.getElementById("add-to-cart");
+    addToCartButton.removeEventListener("click", addToCartHandler);
+    addToCartButton.addEventListener("click", () => {
         addToCartHandler(product)();
     });
 }
 
 function addToCartHandler(product) {
     return function() {
-        const selectedSize = document.getElementById('sizes').value;
+        const selectedSize = document.getElementById("sizes").value;
         if (selectedSize === "") {
-            alert('Please select a size before adding to cart.');
+            alert("Please select a size before adding to cart.");
             return;
         }
 
@@ -92,26 +92,19 @@ function addToCartHandler(product) {
 }
 
 function addToCart(productToAdd) {
-    // Try to retrieve the cart from local storage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // Check if the product (with the selected size) is already in the cart
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const existingProductIndex = cart.findIndex(item => item.id === productToAdd.id && item.selectedSize === productToAdd.selectedSize);
     
     if (existingProductIndex !== -1) {
-        // If the product exists, increase its quantity
         cart[existingProductIndex].quantity += 1;
     } else {
-        // If the product doesn't exist, add it with a quantity of 1
         cart.push({ ...productToAdd, quantity: 1 });
     }
     
-    // Save the updated cart back to local storage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    alert('Product added to cart!');
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Product added to cart!");
 }
 
-document.getElementById('go-to-checkout').addEventListener('click', () => {
-    window.location.href = 'checkout-page.html'; 
+document.getElementById('go-to-checkout').addEventListener("click", () => {
+    window.location.href = "checkout-page.html"; 
 });
