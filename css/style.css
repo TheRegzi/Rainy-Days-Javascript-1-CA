@@ -593,6 +593,10 @@ footer p {
         width: 50%;
     }
 
+    #confirmation-message {
+        width: 70%;
+    }
+
     .top_of_page {
         flex-direction: column;
         width: 00px;
@@ -821,36 +825,18 @@ footer p {
         padding: 1.5em;
     }
     
-    .shipping_form {
-        padding: 0;
-        max-width: 250px;
-    }
-    
-    .shipping_input {
-        padding: 5px;
-        margin-bottom: 10px;
-    }
-    
-    .zipcode_city input[name="zipcode"] {
-        width: 40%;
-    }
-    
-    .payment_buttons {
-        width: 250px;
-    }
     
     .checkmark {
         width: 90px;
     }
-    
-    .thank_you h2 {
-        font-size: 1.2em;
+
+    #confirmation-message {
+        width: 80%;
+        font-weight: 500;
+        font-size: 1em;
+        
     }
     
-    .thank_you p {
-        font-size: 0.9em;
-        max-width: 90%;
-    }
     
     .continue_shopping {
         padding: 0.5em 3em;
